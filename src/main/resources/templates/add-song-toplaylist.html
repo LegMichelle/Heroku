@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+
+<div>
+    <!-- ============================================================================ -->
+    <!-- This content is only used for static prototyping purposes (natural templates)-->
+    <!-- and is therefore entirely optional, as this markup fragment will be included -->
+    <!-- from "fragments/header.html" at runtime.                                     -->
+    <!-- ============================================================================ -->
+    <div class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/webapp">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/webapp/show-playlists">Playlistlist</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/webapp/show-playlists/add">Add Playlist</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="hero-unit">
+        <br>
+        <h2>Songlist</h2>
+        <br>
+        <form action="#" th:action="@{/webapp/show-playlists/addsongtoplaylist/{id}(id=${playlist.id})}"
+            th:object="${playlist}">
+            <fieldset>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Duration</th>
+                        <th>Genre</th>
+                    <!--    <th>Artist</th>-->
+                        <th>Select</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr block th:each="song: ${songs}">
+                        <td th:text="${song.title}"></td>
+                        <td th:text="${song.duration}"></td>
+                        <td th:text="${song.genre.name()}"></td>
+                  <!--      <td th:value="${song.artist.stageName}"></td>-->
+                       <td>
+                           <div class="form-check">
+                                <input class="form-check-input"
+                                       name="songId"
+                                       th:value="${song.id}"
+                                       type="checkbox"
+                                       id="songId">
+                           </div>
+                       </td>
+                </table>
+                <div>
+                    <input type="submit" class="btn btn-primary" value="Add Songs">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

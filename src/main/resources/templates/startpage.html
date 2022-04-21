@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="hero-unit">
+        <br>
+        <h2>Welcome to my first Application</h2>
+        <br>
+
+        <div class="form-group row">
+            <br>
+            <div class="col-4">
+                <h2>Artist</h2>
+            </div>
+            <div class="col-4">
+                <h2>Song</h2>
+            </div>
+            <div class="col-4">
+                <h2>Playlist</h2>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <br>
+            <div class="col-4">
+                <a href="/webapp/show-artist" th:href="@{/webapp/show-artist}" class="btn btn-large btn-primary">Show Artists</a>
+            </div>
+            <div class="col-4">
+                <a href="/webapp/show-songs" th:href="@{/webapp/show-songs}" class="btn btn-large btn-primary">Show Songs</a>
+            </div>
+            <div class="col-4">
+                <a href="/webapp/show-playlists" th:href="@{/webapp/show-playlists}" class="btn btn-large btn-primary">Show Playlists</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+
+<body>
+<div>
+    <!-- ============================================================================ -->
+    <!-- This content is only used for static prototyping purposes (natural templates)-->
+    <!-- and is therefore entirely optional, as this markup fragment will be included -->
+    <!-- from "fragments/header.html" at runtime.                                     -->
+    <!-- ============================================================================ -->
+    <div class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/webapp">Home</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/webapp/show-playlists">Playlistlist</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/webapp/show-playlists/add">Add Playlist</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="hero-unit">
+        <br>
+        <h2>Playlistlist</h2>
+        <br>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+<!--                        <th>User</th>-->
+                        <th>CreationDate</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Add Song</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr block th:each="playlist: ${playlists}">
+                        <td th:text="${playlist.name}"></td>
+                        <td th:text="${playlist.description}"></td>
+<!--                        <td th:text="${playlist.user}"></td>-->
+                        <td th:text="${playlist.creationDate}"></td>
+                        <td><a th:href="@{/webapp/show-playlists/edit/{id}(id=${playlist.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                        <td><a th:href="@{/webapp/show-playlists/delete/{id}(id=${playlist.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                        <td><a th:href="@{/webapp/show-playlists/addsong/{id}(id=${playlist.id})}" class="btn btn-primary"><i class="fa fa-music ml-2"></i></a></td>
+                    </tbody>
+                </table>
+        <p>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
+
